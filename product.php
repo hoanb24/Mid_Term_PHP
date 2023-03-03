@@ -14,7 +14,7 @@
 
     #card {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        max-width: 250px;
+        max-width: 280px;
         margin: auto;
         text-align: center;
         font-family: arial;
@@ -75,7 +75,7 @@
                 'name' => 'Giày cao gót bít mũi Tammy shoes 8cm đen',
                 'code' => 'AD8',
                 'price' => '218.000 đ',
-                'img' => 'http://product.hstatic.net/200000245907/product/2128201_l_493b7eccbd454a839bb8ed582a21bfea_grande.gif'
+                'img' => 'http://tcorder.vn/wp-content/uploads/2014/07/giay-cao-got-gai-day-ngang-1.jpg'
             )
         ),
         'TÚI XÁCH' => array(
@@ -84,21 +84,21 @@
                 'name' => 'Túi xách nữ thời trang POKETO',
                 'code' => 'GW2',
                 'price' => '1.500.000 đ',
-                'img' => 'https://vn-test-11.slatic.net/p/f6819bdc586d5e7c9da1fa6bf78173ca.jpg'
+                'img' => 'https://cf.shopee.vn/file/04e94499983800d326188f5fed24ffd4'
             ),
             'T2' => array(
                 'id' => '1',
                 'name' => 'Túi xách nữ thời trang POKETO',
                 'code' => 'SP-2A1-ĐEN',
                 'price' => '600.000 đ',
-                'img' => 'https://vn-test-11.slatic.net/p/f6819bdc586d5e7c9da1fa6bf78173ca.jpg'
+                'img' => 'https://cf.shopee.vn/file/sg-11134201-22120-b01xkr6qemlvd2_tn'
             ),
             'T3' => array(
                 'id' => '1',
                 'name' => 'Túi xách nữ thời trang POKETO',
                 'code' => 'GW2',
                 'price' => '450.000 đ',
-                'img' => 'https://vn-test-11.slatic.net/p/f6819bdc586d5e7c9da1fa6bf78173ca.jpg'
+                'img' => 'https://cf.shopee.vn/file/b31e508532a18baefa325643bae1aac3'
             )
         )
     )
@@ -106,13 +106,13 @@
     <div class="container">
         <?php
         foreach ($product as $k => $v) { ?>
-            <h4 class="title" style="color:orange;">
+            <h4 class="title" style="color:#FF4500;">
                 <?php echo $k; ?>
             </h4>
             <p class="line"></p>
             <div class="row">
                 <?php foreach ($v as $k1 => $v1) { ?>
-                    <div class="col-lg-3" id="card">
+                    <div class="col-lg-4" id="card">
                         <img src="<?php echo $v1['img'] ?>" alt="" class="img-pro">
                         <br> <br>
                         <p class="name">
