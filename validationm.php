@@ -127,7 +127,7 @@
             <input type="text" placeholder="First Name" name="fname" id="fname">
             <input type="text" placeholder="Last Name" name="lname" id="lname">
         </label> <br> 
-        <input type="text" placeholder="Password" name="password" id="password"> <br> 
+        <input type="password" placeholder="Password" name="password" id="password"> <br> 
         <input type="submit" value="Sign Up">
     </form>
     </div>
