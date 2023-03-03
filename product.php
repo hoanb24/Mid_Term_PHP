@@ -16,7 +16,7 @@
 
     input[type=text],
     select {
-        width: 150px;
+        width: 200px;
         padding: 12px 20px;
         margin: 8px 0;
         display: inline-block;
@@ -91,7 +91,7 @@
     <?php
     error_reporting(0);
     session_start();
-    
+
     $product = array(
         'GIÀY DÉP' => array(
             'G1' => array(
@@ -139,11 +139,12 @@
                 'img' => 'https://cf.shopee.vn/file/b31e508532a18baefa325643bae1aac3'
             )
         )
-            );
-            $_SESSION['products'] = $product;
+    );
+    $_SESSION['products'] = $product;
     ?>
     <center>
         <form action="" method="post" class="formvali">
+            <input type="text" name="nchoose" placeholder="Giày dép or Túi xách"> <br> <br>
             <input type="text" name="nid" placeholder="Nhập id"> <br> <br>
             <input type="text" name="nname" placeholder="Nhập tên"> <br> <br>
             <input type="text" name="ncode" placeholder="Nhập code"> <br> <br>
@@ -152,7 +153,7 @@
             <input type="submit" value="OK">
         </form>
     </center>
-    
+
     <?php
     $nid = $_POST['nid'];
     $nname = $_POST['nname'];
@@ -166,10 +167,15 @@
         'price' => $_POST['nprice'],
         'img' => $_POST['nimg']
     );
-    array_push($product['GIÀY DÉP'], $new_mang);
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $_SESSION['products'] = $product;}
-
+    if($_POST['nchoose']== 'Giày dép'){
+        array_push($product['GIÀY DÉP'], $new_mang);
+    }
+    else {
+        array_push($product['TÚI XÁCH'], $new_mang);
+    }
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $_SESSION['products'] = $product;
+    }
     ?>
 
     <div class="container">
