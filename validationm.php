@@ -105,18 +105,17 @@
         }
     }
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $partten = "/^([A-Z]){1}([\w_\.!@#$%^&*()]+){5,31}$/";
+        $partten = "/^([A-Z]){1}([\w_\.!@#$%^&*()]+){8,31}$/";
         $password = $_POST["password"];
         if (empty($_POST["password"])) {
             echo "<div style='color:red;'>Error: Password must fill.</div> <br>";
-        }elseif(!empty($_POST["password"])){
-            echo "<p>Password :$password</p>" ; 
         }
-         else {
-            if (!preg_match($partten, $_POST["password"])) {
+         elseif(!preg_match($partten, $_POST["password"])) {
                 echo "<div style='color:red;'>Error: Incorrect Password .</div> <br>";
-            }
-        }
+            
+        }  else{
+            echo "<p>Password :$password</p>" ; 
+        } 
         
     }
     ?>
