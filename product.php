@@ -8,6 +8,39 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 <link rel="shortcut icon" href="https://cf.shopee.vn/file/51460c45fc3b4ee731fb18a73e706135" type="image/x-icon">
 <style>
+    form {
+        border: 2px solid blue;
+        width: 400px;
+        padding: 10px;
+    }
+
+    input[type=text],
+    select {
+        width: 150px;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 300px;
+        background-color: hsl(0, 100%, 50%);
+        ;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
     img {
         width: 200px;
         height: 250px;
@@ -53,8 +86,12 @@
 </style>
 
 <body>
+
+
     <?php
     error_reporting(0);
+    session_start();
+    
     $product = array(
         'GIÀY DÉP' => array(
             'G1' => array(
@@ -102,18 +139,49 @@
                 'img' => 'https://cf.shopee.vn/file/b31e508532a18baefa325643bae1aac3'
             )
         )
-    )
+            );
+            $_SESSION['products'] = $product;
     ?>
+    <center>
+        <form action="" method="post" class="formvali">
+            <input type="text" name="nid" placeholder="Nhập id"> <br> <br>
+            <input type="text" name="nname" placeholder="Nhập tên"> <br> <br>
+            <input type="text" name="ncode" placeholder="Nhập code"> <br> <br>
+            <input type="text" name="nprice" placeholder="Nhập giá"> <br> <br>
+            <input type="text" name="nimg" placeholder="Link ảnh"> <br> <br>
+            <input type="submit" value="OK">
+        </form>
+    </center>
+    
+    <?php
+    $nid = $_POST['nid'];
+    $nname = $_POST['nname'];
+    $ncode = $_POST['ncode'];
+    $nprice = $_POST['nprice'];
+    $nimg = $_POST['nimg'];
+    $new_mang = array(
+        'id' => $_POST['nid'],
+        'name' => $_POST['nname'],
+        'code' => $_POST['ncode'],
+        'price' => $_POST['nprice'],
+        'img' => $_POST['nimg']
+    );
+    array_push($product['GIÀY DÉP'], $new_mang);
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $_SESSION['products'] = $product;}
+
+    ?>
+
     <div class="container">
         <?php
-        foreach ($product as $k => $v) { ?>
+        foreach ($_SESSION['products'] as $k => $v) { ?>
             <h4 class="title" style="color:#FF4500;">
                 <?php echo $k; ?>
             </h4>
             <p class="line"></p>
             <div class="row">
                 <?php foreach ($v as $k1 => $v1) { ?>
-                    <div class="col-lg-4" id="card">
+                    <div class="col-lg-3" id="card">
                         <img src="<?php echo $v1['img'] ?>" alt="" class="img-pro">
                         <br> <br>
                         <p class="name">
@@ -127,6 +195,7 @@
                 <?php } ?>
             </div>
         <?php } ?>
+
     </div>
     <br>
     <br>
